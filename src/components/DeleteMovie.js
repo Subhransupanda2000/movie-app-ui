@@ -11,12 +11,14 @@ import {
   Button,
   Alert,
 } from "reactstrap";
-import { post } from "../clients/HttpClients";
+import { Delete } from "../clients/HttpClients";
 
-function CreateMovie() {
+
+function DeleteMovie() {
   // State for form fields
-  const [title, settitle] = useState("");
   const [id, setid] = useState("");
+  const [title, settitle] = useState("");
+
 
   // State for global error message
   const [errorMessage, setErrorMessage] = useState("");
@@ -39,7 +41,7 @@ function CreateMovie() {
       title: title,
       id: id,
     };
-    post("http://localhost:8080/movies/movie", JSON.stringify(request));
+    Delete("http://localhost:8080/movies/8", JSON.stringify(request));
   };
 
   return (
@@ -77,7 +79,7 @@ function CreateMovie() {
 
               {/* Submit Button */}
               <Button color="primary" type="submit">
-                Submit
+                Delete
               </Button>
             </Form>
           </Col>
@@ -87,4 +89,4 @@ function CreateMovie() {
   );
 }
 
-export default CreateMovie;
+export default DeleteMovie;

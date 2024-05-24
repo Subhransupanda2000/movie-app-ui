@@ -11,9 +11,10 @@ import {
   Button,
   Alert,
 } from "reactstrap";
-import { post } from "../clients/HttpClients";
+import { put } from "../clients/HttpClients";
 
-function CreateMovie() {
+
+function UpdateMovie() {
   // State for form fields
   const [title, settitle] = useState("");
   const [id, setid] = useState("");
@@ -39,7 +40,7 @@ function CreateMovie() {
       title: title,
       id: id,
     };
-    post("http://localhost:8080/movies/movie", JSON.stringify(request));
+    put("http://localhost:8080/movies/8", JSON.stringify(request));
   };
 
   return (
@@ -77,7 +78,7 @@ function CreateMovie() {
 
               {/* Submit Button */}
               <Button color="primary" type="submit">
-                Submit
+                update here
               </Button>
             </Form>
           </Col>
@@ -87,4 +88,4 @@ function CreateMovie() {
   );
 }
 
-export default CreateMovie;
+export default UpdateMovie;
