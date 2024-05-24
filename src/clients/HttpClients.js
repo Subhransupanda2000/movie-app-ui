@@ -22,6 +22,40 @@ export function post(url, data, onSuccess, onError) {
       console.error("Error:", error);
     });
 }
+export function put(url, data, onSuccess, onError) {
+  axios
+    .put(url, data, {headers})
+    .then((response) => {
+      if (onSuccess) {
+        onSuccess(response);
+      }
+      console.log("Response:", response.data);
+    })
+    .catch((error) => {
+      // Handle errors
+      if (onError) {
+        onError(error);
+      }
+      console.error("Error:", error);
+    });
+}
+export function Delete(url, data, onSuccess, onError) {
+  axios
+    .delete(url, data, {headers})
+    .then((response) => {
+      if (onSuccess) {
+        onSuccess(response);
+      }
+      console.log("Response:", response.data);
+    })
+    .catch((error) => {
+      // Handle errors
+      if (onError) {
+        onError(error);
+      }
+      console.error("Error:", error);
+    });
+}
 
 export function get(url, onSuccess, onError){
     axios.get(url, {headers})
